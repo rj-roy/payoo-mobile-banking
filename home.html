@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo - Home</title>
+    <link rel="icon" href="assets/logo.png">
+    <link rel='stylesheet' type='text/css' media='screen' href='input.css'>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <script src="scripts/home.js" defer></script>
+    <script src="scripts/machine.js"></script>
+
+</head>
+
+<body class="min-h-screen bg-base-200 bg-[#f4f5f7] max-w-md mx-auto">
+    <header class="flex justify-between items-center border-b border-b-[#e4e0e0] p-4">
+        <!-- Header-Left -->
+        <section class="flex gap-2">
+            <figure class="w-[50px]">
+                <img src="assets/logo.png" alt="payoo">
+            </figure>
+
+            <figcaption>
+                <div>
+                    <h3 class="text-xl font-bold">$<span id="avail-balance">9999</span></h3>
+                    <p class="text-sm">Available Balance</p>
+                </div>
+            </figcaption>
+        </section>
+
+        <!-- header-Right -->
+        <section>
+            <button id="logout-btn" class="btn bg-[#ffffff] rounded-xl border-2 border-[#dbdada]">
+                <img src="assets/logout.png" alt="" class="w-5 h-5">Log Out</button>
+        </section>
+    </header>
+
+    <main class="gap-4 grid mt-10 px-5">
+
+        <!-- Hero -->
+        <section class="gap-3 grid">
+            <h2 class="text-2xl font-bold">Welcome to Pay<span class="text-[#7460FF]">oo</span></h2>
+            <p>Enjoy easy and convenient financial services with us.<br>Cashout charge is low and</p>
+        </section>
+
+        <!-- services -->
+        <section class="grid grid-cols-3 grid-rows-2 mt-3 gap-4">
+            <button onclick="getFeatures('add-money')"
+                class="btn flex flex-col justify-center items-center border-2 border-[#e7e3e3] py-4 h-full rounded-xl">
+                <img src="assets/opt-1.png" alt="">
+                <h4>Add Money</h4>
+            </button>
+
+            <button onclick="getFeatures('cashout')"
+                class="btn flex flex-col justify-center items-center border-2 border-[#e7e3e3] py-4 h-full rounded-xl">
+                <img src="assets/opt-2.png" alt="">
+                <h4>Cashout</h4>
+            </button>
+
+            <button onclick="getFeatures('transfer-money')"
+                class="btn flex flex-col justify-center items-center border-2 border-[#e7e3e3] py-4 h-full rounded-xl">
+                <img src="assets/opt-3.png" alt="">
+                <h4>Transfer Money</h4>
+            </button>
+
+            <button onclick="getFeatures('get-bonus')"
+                class="btn flex flex-col justify-center items-center border-2 border-[#e7e3e3] py-4 h-full rounded-xl">
+                <img src="assets/opt-4.png" alt="">
+                <h4>Get Bonus</h4>
+            </button>
+
+            <button onclick="getFeatures('pay-bill')"
+                class="btn flex flex-col justify-center items-center border-2 border-[#e7e3e3] py-4 h-full rounded-xl">
+                <img src="assets/opt-5.png" alt="">
+                <h4>Pay Bill</h4>
+            </button>
+
+            <button onclick="getFeatures('transactions')"
+                class="btn flex flex-col justify-center items-center border-2 border-[#e7e3e3] py-4 h-full rounded-xl">
+                <img src="assets/opt-6.png" alt="">
+                <h4>Transactions</h4>
+            </button>
+
+        </section>
+
+
+
+        <!-- add money -->
+        <section id="add-money" class="mt-6">
+
+            <h2 class="font-bold bg-white p-3 rounded-sm mb-2">Add Money</h2>
+            <div class="card bg-base-100 w-full max-w-sm   shrink-0 mx-auto">
+                <div class="card-body mt-2">
+                    <fieldset class="fieldset">
+
+                        <label for="input-bc" class="label text-black font-bold">Bank Account Number</label>
+                        <input id="input-bc" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter 11 digit account number" />
+
+                        <label for="input-amount" class="label text-black font-bold">Amount to Add</label>
+                        <input id="input-amount" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Add Amount to Add" />
+
+                        <label for="input-auth-pin" class="label text-black font-bold">Pin Number</label>
+                        <input id="input-auth-pin" type="number" class="input rounded-full bg-[#f4f5f7] border-none"
+                            placeholder="Enter authentication code" />
+
+                        <button id="add-money-btn" class="btn btn-neutral mt-4 rounded-full bg-[#3b25c1]">Add
+                            Money</button>
+
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <!-- cashout -->
+        <section id="cashout" class="mt-6 hidden">
+
+            <h2 class="font-bold bg-white p-3 rounded-sm mb-2">Cashout</h2>
+            <div class="card bg-base-100 w-full max-w-sm   shrink-0 mx-auto">
+                <div class="card-body mt-2">
+                    <fieldset class="fieldset">
+
+                        <label for="input-agent" class="label text-black font-bold">Agent Number</label>
+                        <input id="input-agent" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter 11 digit agent number" />
+
+                        <label for="input-amount-w" class="label text-black font-bold">Amount</label>
+                        <input id="input-amount-w" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter Amount to Withdraw" />
+
+                        <label for="input-auth-pin-w" class="label text-black font-bold">Pin Number</label>
+                        <input id="input-auth-pin-w" type="number" class="input rounded-full bg-[#f4f5f7] border-none"
+                            placeholder="Enter authentication code" />
+
+                        <button id="cashout-btn" class="btn btn-neutral mt-4 rounded-full bg-[#3b25c1]">Cashout</button>
+
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transfer money -->
+        <section id="transfer-money" class="mt-6 hidden">
+
+            <h2 class="font-bold bg-white p-3 rounded-sm mb-2">Transfer Money</h2>
+            <div class="card bg-base-100 w-full max-w-sm   shrink-0 mx-auto">
+                <div class="card-body mt-2">
+                    <fieldset class="fieldset">
+
+                        <label for="input-ac-s" class="label text-black font-bold">User Account Number</label>
+                        <input id="input-ac-s" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter receiver account number" />
+
+                        <label for="input-amount-send" class="label text-black font-bold">Amount To Transfer</label>
+                        <input id="input-amount-send" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter Amount to transfer" />
+
+                        <label for="input-auth-pin-send" class="label text-black font-bold">Pin Number</label>
+                        <input id="input-auth-pin-send" type="number"
+                            class="input rounded-full bg-[#f4f5f7] border-none"
+                            placeholder="Enter authentication code" />
+
+                        <button id="send-money-btn" class="btn btn-neutral mt-4 rounded-full bg-[#3b25c1]">Transfer
+                            Money</button>
+
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Bonus -->
+        <section id="get-bonus" class="mt-6 hidden">
+
+            <h2 class="font-bold bg-white p-3 rounded-sm mb-2">Get Bonus</h2>
+            <div class="card bg-base-100 w-full max-w-sm   shrink-0 mx-auto">
+                <div class="card-body mt-2">
+                    <fieldset class="fieldset">
+
+                        <label for="coupon" class="label text-black font-bold">Bonus Coupon</label>
+                        <input id="coupon" type="text" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter Bonus Coupon" />
+
+                        <button id="get-bonus-btn" class="btn btn-neutral mt-4 rounded-full bg-[#3b25c1]">Get
+                            Bonus</button>
+
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <!-- pay bill -->
+        <section id="pay-bill" class="mt-6 hidden">
+
+            <h2 class="font-bold bg-white p-3 rounded-sm mb-2">Pay Bill</h2>
+            <div class="card bg-base-100 w-full max-w-sm   shrink-0 mx-auto">
+                <div class="card-body mt-2">
+                    <fieldset class="fieldset">
+
+                        <label for="pick-bank" class="label text-black font-bold">Select to Pay</label>
+                        <select id="pick-bank" class="select mb-2 bg-[#f4f5f7]">
+                            <option disabled selected>Pick Bank</option>
+                            <option>DBBL</option>
+                            <option>Bank Asia</option>
+                            <option>Islami Bank LTD</option>
+                            <option>Sonali Bank</option>
+                        </select>
+
+                        <label for="biller-ac" class="label text-black font-bold">Biller Account Number</label>
+                        <input id="biller-ac" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter Biller Account Number" />
+
+                        <label for="input-amount-pay" class="label text-black font-bold">Amount To Pay</label>
+                        <input id="input-amount-pay" type="number" class="input rounded-full border-none bg-[#f4f5f7]"
+                            placeholder="Enter Amount to pay" />
+
+                        <label for="input-auth-pin-pay" class="label text-black font-bold">Pin Number</label>
+                        <input id="input-auth-pin-pay" type="number" class="input rounded-full bg-[#f4f5f7] border-none"
+                            placeholder="Enter authentication code" />
+
+                        <button id="pay-bill-btn" class="btn btn-neutral mt-4 rounded-full bg-[#3b25c1]">Pay
+                            Bill</button>
+
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transactions -->
+        <section id="transactions" class="mt-10 gap-5 grid hidden">
+            <figure class="flex justify-between items-center">
+                <h3 class="text-2xl font-bold">Latest Payment</h3>
+                <p class="">View All</p>
+            </figure>
+
+            <article class="grid grid-rows-5 gap-2 px-2">
+                <button class="btn flex justify-between h-full p-3 bg-white rounded-xl">
+                    <figure class="flex gap-3 items-center">
+                        <img src="assets/opt-1.png" alt="" class="w-7 h-7">
+                        <div class="text-start">
+                            <h4>Electricity Bill</h4>
+                            <p class="text-gray-500">Today 01.44 AM</p>
+                        </div>
+                    </figure>
+
+                    <menu class="gap-1 flex flex-col">
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                    </menu>
+                </button>
+
+                <button class="btn flex justify-between h-full p-3 bg-white rounded-xl">
+                    <figure class="flex gap-3 items-center">
+                        <img src="assets/opt-1.png" alt="" class="w-7 h-7">
+                        <div class="text-start">
+                            <h4>Electricity Bill</h4>
+                            <p class="text-gray-500">Today 01.44 AM</p>
+                        </div>
+                    </figure>
+
+                    <menu class="gap-1 flex flex-col">
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                    </menu>
+                </button>
+
+                <button class="btn flex justify-between h-full p-3 bg-white rounded-xl">
+                    <figure class="flex gap-3 items-center">
+                        <img src="assets/opt-1.png" alt="" class="w-7 h-7">
+                        <div class="text-start">
+                            <h4>Electricity Bill</h4>
+                            <p class="text-gray-500">Today 01.44 AM</p>
+                        </div>
+                    </figure>
+
+                    <menu class="gap-1 flex flex-col">
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                    </menu>
+                </button>
+
+                <button class="btn flex justify-between h-full p-3 bg-white rounded-xl">
+                    <figure class="flex gap-3 items-center">
+                        <img src="assets/opt-1.png" alt="" class="w-7 h-7">
+                        <div class="text-start">
+                            <h4>Electricity Bill</h4>
+                            <p class="text-gray-500">Today 01.44 AM</p>
+                        </div>
+                    </figure>
+
+                    <menu class="gap-1 flex flex-col">
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                        <div class="w-1 h-1 rounded-full bg-[#6e6e6e]"></div>
+                    </menu>
+                </button>
+
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

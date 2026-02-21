@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo - Your Money Transfer Protocjol</title>
+    <link rel="icon" href="assets/logo.png">
+    <link rel='stylesheet' type='text/css' media='screen' href='input.css'>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <script src="scripts/login.js" defer></script>
+</head>
+
+<body class="mx-auto min-h-screen bg-base-200 bg-[#f4f5f7] grid place-items-center box-content">
+    <main class="w-full max-w-md">
+        <section>
+            <figure class="w-[200px] mx-auto">
+                <img src="assets/Logo-full.png" alt="">
+            </figure>
+
+            <article>
+                <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-xl mx-auto mt-12">
+                    <div class="card-body">
+                        <fieldset class="fieldset">
+                            <label for="input-number" class="label text-black font-bold">Mobile Number</label>
+                            <input id="input-number" type="tel" class="input rounded-full border-none bg-[#f4f5f7]" placeholder="Enter your number" />
+
+                            <label for="input-pin" class="label text-black font-bold">4 Digit Pin</label>
+                            <input id="input-pin" type="password" class="input rounded-full bg-[#f4f5f7] border-none" placeholder="Enter 4 Digit Pin"/>
+                            
+                            <button id="login-btn" class="btn btn-neutral mt-4 rounded-full bg-[#3b25c1]">Login</button>
+                        </fieldset>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>
+
+        <!-- <search class="bg-cyan-200 rounded-xl flex items-center p-4 gap-5">
+            <img src="assets/search.png" alt="" class="w-7 h-7">
+            <input type="text" placeholder="Looking for..." class="border-none focus:outline-none">
+        </search> -->
